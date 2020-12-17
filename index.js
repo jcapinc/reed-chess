@@ -70,3 +70,15 @@ function exampleTwo() {
 }
 
 /// START WORK HERE:
+const sq = [];
+for (let i = 0; i < 64 ; i++) {
+	if (i % 2 == 0) sq.push(whiteSquare());
+	else sq.push(blackSquare());
+}
+const rows = [];
+for (let i = 0; i < 64; i += 8) {
+	let slice = sq.slice(i, i + 8)
+	if (i % 16 === 0) slice = slice.reverse();
+	rows.push(row(slice));
+}
+output(rows);
